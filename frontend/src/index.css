@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --fg: 24 24 27;
+  --night-950: 244 245 247;
+  --night-900: 249 250 251;
+  --night-850: 255 255 255;
+  --night-800: 255 255 255;
+  --night-700: 228 228 231;
+  --night-600: 212 212 216;
+  --night-500: 161 161 170;
+  --acid-200: 49 46 129;
+  --acid-300: 67 56 202;
+  --acid-400: 99 102 241;
+  --acid-500: 79 70 229;
+  --acid-600: 67 56 202;
+
+  --page-bg-image:
+    radial-gradient(ellipse 78% 55% at 74% -10%, rgba(99, 102, 241, 0.16), transparent 62%),
+    radial-gradient(ellipse 65% 48% at 4% 104%, rgba(45, 212, 191, 0.13), transparent 62%),
+    linear-gradient(180deg, #f8f9fb 0%, #f1f2f5 52%, #f7f8fa 100%);
+  --glass-bg-color: rgba(255, 255, 255, 0.7);
+  --glass-bg-image: linear-gradient(155deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.56) 58%, rgba(255, 255, 255, 0.82));
+  --glass-border-color: rgba(15, 23, 42, 0.08);
+  --glass-soft-bg: rgba(255, 255, 255, 0.55);
+  --glass-soft-border: rgba(15, 23, 42, 0.07);
+  --glass-shadow: 0 24px 64px -38px rgba(15, 23, 42, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --glass-overlay-bg: rgba(255, 255, 255, 0.96);
+  --glass-overlay-border: rgba(15, 23, 42, 0.1);
+  --glass-overlay-shadow: 0 28px 80px -28px rgba(15, 23, 42, 0.35), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --shadow-card: 0 24px 70px -42px rgba(15, 23, 42, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --shadow-pop: 0 28px 80px -24px rgba(15, 23, 42, 0.35), inset 0 1px 0 rgba(255, 255, 255, 1);
+  --scroll-thumb: rgba(15, 23, 42, 0.18);
+  --grid-line: rgba(15, 23, 42, 0.055);
+  --glow-strong: rgba(99, 102, 241, 0.16);
+  --glow-soft: rgba(45, 212, 191, 0.1);
+  color-scheme: light;
+}
+
+.dark {
+  --fg: 244 244 245;
+  --night-950: 5 5 6;
+  --night-900: 10 10 12;
+  --night-850: 16 16 18;
+  --night-800: 23 23 26;
+  --night-700: 32 32 36;
+  --night-600: 43 43 48;
+  --night-500: 58 58 64;
+  --acid-200: 224 231 255;
+  --acid-300: 199 210 254;
+  --acid-400: 129 140 248;
+  --acid-500: 99 102 241;
+  --acid-600: 79 70 229;
+
+  --page-bg-image:
+    radial-gradient(ellipse 80% 55% at 72% -12%, rgba(129, 140, 248, 0.14), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 6% 108%, rgba(45, 212, 191, 0.08), transparent 62%),
+    linear-gradient(180deg, #08080a 0%, #050506 52%, #08080a 100%);
+  --glass-bg-color: rgba(16, 16, 18, 0.55);
+  --glass-bg-image: linear-gradient(155deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018) 58%, rgba(255, 255, 255, 0.035));
+  --glass-border-color: rgba(255, 255, 255, 0.09);
+  --glass-soft-bg: rgba(255, 255, 255, 0.035);
+  --glass-soft-border: rgba(255, 255, 255, 0.07);
+  --glass-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --glass-overlay-bg: rgba(11, 11, 13, 0.95);
+  --glass-overlay-border: rgba(255, 255, 255, 0.1);
+  --glass-overlay-shadow: 0 28px 90px -24px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 24px 70px -42px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-pop: 0 28px 90px -24px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --scroll-thumb: rgba(255, 255, 255, 0.15);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --glow-strong: rgba(129, 140, 248, 0.18);
+  --glow-soft: rgba(45, 212, 191, 0.08);
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-night-950 font-sans text-fg antialiased;
+    background-image: var(--page-bg-image);
+    background-attachment: fixed;
+    transition: background-color 220ms ease, color 220ms ease;
+  }
+  ::selection {
+    background-color: rgb(var(--acid-400) / 0.28);
+    color: rgb(var(--fg));
+  }
+  :focus-visible {
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) transparent;
+  }
+  .glass-surface {
+    background-color: var(--glass-bg-color);
+    background-image: var(--glass-bg-image);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(22px) saturate(125%);
+    -webkit-backdrop-filter: blur(22px) saturate(125%);
+  }
+  .glass-overlay {
+    background-color: var(--glass-overlay-bg);
+    background-image: linear-gradient(155deg, rgba(255, 255, 255, 0.08), transparent 58%, rgba(255, 255, 255, 0.04));
+    border: 1px solid var(--glass-overlay-border);
+    box-shadow: var(--glass-overlay-shadow);
+    backdrop-filter: blur(22px) saturate(125%);
+    -webkit-backdrop-filter: blur(22px) saturate(125%);
+  }
+  .glass-soft {
+    background-color: var(--glass-soft-bg);
+    border: 1px solid var(--glass-soft-border);
+    backdrop-filter: blur(16px) saturate(115%);
+    -webkit-backdrop-filter: blur(16px) saturate(115%);
+  }
+  .glass-highlight {
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 999px;
+}
+
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.dashboard-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}

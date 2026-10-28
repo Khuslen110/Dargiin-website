@@ -1,0 +1,27 @@
+# secrets & env
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+backend/var/
+
+# Node
+node_modules/
+dist/
+coverage/
+*.local
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/
+
+# uploads / exports
+*.xlsx
+!docs/**/*.xlsx
