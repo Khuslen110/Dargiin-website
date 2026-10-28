@@ -67,3 +67,4 @@ cd frontend && npm run lint && npm test && npm run build
 500k гүйцэтгэлийн дэлгэрэнгүй: [docs/PERFORMANCE.md](docs/PERFORMANCE.md).
 
 > Энэ системийг production-д гарахаас өмнө `docs/SECURITY.md`-ийн production зөвлөмж, `docs/DEVELOPMENT.md`-ийн шалгалтуудыг гүйцэтгэнэ.
+# Dargiin-website
